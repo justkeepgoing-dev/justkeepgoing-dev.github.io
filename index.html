@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustKeepGoing Dev</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #1e1f29, #24283b, #292e49);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(to right, #00eaff, #5fff9f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #c8d3e0;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    .neon {
+      font-weight: bold;
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff;
+      animation: flicker 2s infinite alternate;
+    }
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.8; }
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.85rem;
+      color: #7e8aa2;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="neon">JustKeepGoing Dev</h1>
+  <p>Flutter를 공부하며 앱 개발을 이어가는 개발자의 공간입니다.<br>
+     아이디어를 코드로, 코드를 현실로 만들어갑니다.</p>
+  <footer>© 2025 JustKeepGoing · Built with 💙 Flutter</footer>
+</body>
+</html>
