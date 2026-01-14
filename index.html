@@ -22,6 +22,7 @@
       font-size: 2.8rem;
       margin-bottom: 0.8rem;
       background: linear-gradient(to right, #00eaff, #5fff9f);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -30,6 +31,27 @@
       color: #c8d3e0;
       max-width: 500px;
       line-height: 1.6;
+    }
+    .privacy-link {
+      margin-top: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      color: #0b1420;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(135deg, #5fff9f, #00eaff);
+      box-shadow: 0 6px 16px rgba(0, 234, 255, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .privacy-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 234, 255, 0.35);
+    }
+    .privacy-link:active {
+      transform: translateY(0);
     }
     .neon {
       font-weight: bold;
@@ -55,6 +77,7 @@
   <h1 class="neon">JustKeepGoing Dev</h1>
   <p>Flutter를 공부하며 앱 개발을 이어가는 개발자의 공간입니다.<br>
      아이디어를 코드로, 코드를 현실로 만들어갑니다.</p>
+  <a class="privacy-link" href="/privacy">앱별 개인정보 처리방침</a>
   <footer>© 2025 JustKeepGoing · Built with 💙 Flutter</footer>
 </body>
 </html>
