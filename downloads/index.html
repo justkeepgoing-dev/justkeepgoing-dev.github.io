@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <meta name="description" content="JustKeepGoing 앱 다운로드 페이지" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <main class="wrap">
     <section class="hero">
@@ -22,17 +24,19 @@
 
     <!-- App Details Display -->
     <section class="app-detail hidden" id="appDetail">
-      <img src="" alt="App Icon" class="app-icon" id="appIcon" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
+      <img src="" alt="App Icon" class="app-icon" id="appIcon"
+        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
       <h2 class="app-name" id="appName">App Name</h2>
       <p class="app-desc" id="appDesc">App description goes here</p>
 
       <div class="download-actions" id="downloadActions">
         <a href="#" id="androidLink" target="_blank" rel="noopener noreferrer">
-          <img class="dl-badge play-store" src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play 스토어에서 다운로드">
+          <!-- 다운로드 및 여백 크롭 완료된 구글 스토어 배지 이미지 -->
+          <img class="dl-badge play-store" src="./assets/google-play-badge.png" alt="Google Play 스토어에서 다운로드">
         </a>
         <a href="#" id="iosLink" target="_blank" rel="noopener noreferrer">
-          <!-- Apple's official KR App Store badge SVG -->
-          <img class="dl-badge app-store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store에서 다운로드하기">
+          <!-- 공식 다운로드 애플 스토어 배지 SVG -->
+          <img class="dl-badge app-store" src="./assets/app-store-badge.svg" alt="App Store에서 다운로드하기">
         </a>
       </div>
 
@@ -51,7 +55,7 @@
         id: 'raceballs',
         name: 'RaceBalls',
         desc: '레이싱 룰렛 3D - 빠르고 직관적인 물리 엔진 기반 화면 비율 구슬 레이싱 무작위 추첨기',
-        icon: './assets/raceballs-icon.png',
+        icon: './assets/raceballs/icon_512.png',
         screenshots: [
           './assets/raceballs-screen1.png',
           './assets/raceballs-screen2.png',
@@ -127,16 +131,16 @@
       appIcon.src = app.icon;
       appName.innerText = app.name;
       appDesc.innerText = app.desc;
-      
+
       // Setup links
-      if(app.androidLink) {
+      if (app.androidLink) {
         androidLink.href = app.androidLink;
         androidLink.style.display = 'inline-flex';
       } else {
         androidLink.style.display = 'none';
       }
-      
-      if(app.iosLink) {
+
+      if (app.iosLink) {
         iosLink.href = app.iosLink;
         iosLink.style.display = 'inline-flex';
       } else {
@@ -151,7 +155,7 @@
         img.src = src;
         img.alt = `${app.name} 스크린샷`;
         // Handle broken images for development gracefully
-        img.onerror = function() {
+        img.onerror = function () {
           this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'><rect width='200' height='400' fill='%231e2235'/><text x='100' y='200' fill='%23a7b0c3' text-anchor='middle' alignment-baseline='middle' font-family='sans-serif' font-size='14'>Screenshot</text></svg>";
         };
         screenshotsContainer.appendChild(img);
@@ -165,4 +169,5 @@
     document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
+
 </html>
