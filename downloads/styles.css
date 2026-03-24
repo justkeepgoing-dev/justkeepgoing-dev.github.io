@@ -152,10 +152,20 @@ body{
 }
 
 .dl-badge {
-  height: 52px; /* Fixed height to match both badges visually */
   width: auto;
   object-fit: contain;
   display: block;
+}
+
+/* Google Play 공식 배지 이미지는 상하좌우 투명 여백이 굉장히 넓게 포함되어 있어 실제 보이는 크기가 작습니다.
+   따라서 height를 더 크게 주어 시각적인 균형을 맞춥니다. */
+.play-store {
+  height: 75px; 
+}
+
+/* Apple App Store 배지(SVG)는 거의 여백 없이 딱 맞게 잘려 있습니다. */
+.app-store {
+  height: 48px;
 }
 
 footer{margin-top:40px; text-align:center; color:var(--muted); font-size:0.85rem; padding-bottom: 20px;}
