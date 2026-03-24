@@ -132,38 +132,30 @@ body{
 .download-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
-.dl-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.download-actions a {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.dl-btn:hover {
+.download-actions a:hover {
   transform: translateY(-2px);
+  opacity: 0.9;
 }
-.dl-btn:active {
+.download-actions a:active {
   transform: translateY(0);
 }
-.dl-btn.ios {
-  background: #000000;
-  color: #fff;
-  border: 1px solid #333;
+
+.dl-badge {
+  height: 52px; /* Fixed height to match both badges visually */
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
-.dl-btn.android {
-  background: #00eaff;
-  color: #0b1530;
-  box-shadow: 0 4px 15px rgba(0, 234, 255, 0.2);
-}
-.dl-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
 footer{margin-top:40px; text-align:center; color:var(--muted); font-size:0.85rem; padding-bottom: 20px;}

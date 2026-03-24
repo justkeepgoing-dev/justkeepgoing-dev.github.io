@@ -26,19 +26,18 @@
       <h2 class="app-name" id="appName">App Name</h2>
       <p class="app-desc" id="appDesc">App description goes here</p>
 
-      <div class="screenshots-container" id="screenshotsContainer">
-        <!-- Screenshots injected by JS -->
+      <div class="download-actions" id="downloadActions">
+        <a href="#" id="androidLink" target="_blank" rel="noopener noreferrer">
+          <img class="dl-badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play 스토어에서 다운로드">
+        </a>
+        <a href="#" id="iosLink" target="_blank" rel="noopener noreferrer">
+          <!-- Apple's official KR App Store badge SVG -->
+          <img class="dl-badge padding-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store에서 다운로드하기">
+        </a>
       </div>
 
-      <div class="download-actions" id="downloadActions">
-        <a href="#" class="dl-btn android" id="androidLink" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M17.523 15.3414C17.523 17.5658 19.3361 19.366 21.5768 19.366C21.6046 19.366 21.6323 19.3653 21.6596 19.3642C21.3283 20.3065 20.7381 21.1444 19.9542 21.7828C18.6756 22.8252 16.9248 23.0135 15.6568 22.2599L12 20.0886L8.34316 22.2599C7.07548 23.0132 5.32415 22.8255 4.04584 21.7828C3.26189 21.1444 2.67175 20.3065 2.34045 19.3642C2.36773 19.3653 2.39542 19.366 2.42319 19.366C4.66388 19.366 6.47697 17.5658 6.47697 15.3414V8.65863C6.47697 6.43425 4.66388 4.63402 2.42319 4.63402C2.3955 4.63402 2.36787 4.6347 2.34065 4.63584C2.67191 3.69356 3.262 2.85566 4.04584 2.21721C5.32439 1.17454 7.07544 0.986873 8.34316 1.7401L12 3.91141L15.6568 1.7401C16.9245 0.986821 18.6756 1.17449 19.9542 2.21721C20.738 2.85561 21.3281 3.69345 21.6594 4.63569C21.6322 4.63459 21.6046 4.63402 21.5768 4.63402C19.3361 4.63402 17.523 6.43425 17.523 8.65863V15.3414Z" fill="currentColor"/></svg>
-          Google Play Store
-        </a>
-        <a href="#" class="dl-btn ios" id="iosLink" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M16.365 21.4938C15.5414 21.4952 14.7397 21.229 14.0628 20.7289C13.2982 20.1499 12.3526 19.8249 11.3752 19.8055C10.4042 19.8291 9.46337 20.1558 8.70517 20.7356C8.04618 21.2464 7.25895 21.5204 6.44686 21.5204C4.30058 21.5034 1.95451 19.1246 1.51733 14.7408C1.19659 11.8388 1.91612 8.95922 3.86439 6.84881C4.78204 5.86175 6.00767 5.25301 7.33089 5.1274C8.28181 5.09919 9.19794 5.43328 9.92348 5.89736C10.5901 6.31016 11.4552 6.54181 12.3486 6.54134C13.2382 6.54134 14.103 6.30796 14.767 5.89531C15.6593 5.34142 16.7119 5.06015 17.7818 5.08865C18.9959 5.17838 20.126 5.75836 21.0116 6.74108C20.6186 6.94297 19.3413 7.6432 19.3413 9.42111C19.3525 11.6669 21.1396 12.6074 21.5695 12.8225C21.4391 13.9143 21.0544 14.9789 20.4431 15.9392C19.6483 17.18 18.2324 19.8202 16.5925 21.3653C16.5163 21.4335 16.4371 21.4984 16.3551 21.5601C16.3551 21.5601 16.3601 21.5492 16.365 21.4938ZM11.1398 5.06311C11.1337 4.09068 11.5118 3.15654 12.1906 2.47043C12.8693 1.78433 13.7915 1.39958 14.764 1.39327C14.7865 2.45347 14.394 3.47528 13.6705 4.2263C13.5186 4.3831 13.3444 4.51608 13.154 4.62057C12.5412 4.95663 11.849 5.12217 11.1444 5.09919C11.1444 5.09919 11.1466 5.071 11.1398 5.06311Z" fill="currentColor"/></svg>
-          App Store
-        </a>
+      <div class="screenshots-container" id="screenshotsContainer">
+        <!-- Screenshots injected by JS -->
       </div>
     </section>
 
