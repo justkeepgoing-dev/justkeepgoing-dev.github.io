@@ -19,176 +19,20 @@
 
     <!-- App List -->
     <div class="app-list" id="appList">
-      <!-- List items injected by JS -->
+      <a href="./raceballs/" class="app-list-item" style="text-decoration: none; color: inherit;">
+        <img class="list-app-icon" src="./raceballs/icon.png" alt="RaceBalls icon"
+          onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
+        <span class="list-app-name">RaceBalls</span>
+      </a>
+      <a href="./dutchpay/" class="app-list-item" style="text-decoration: none; color: inherit;">
+        <img class="list-app-icon" src="./dutchpay/icon.png" alt="더치페이 icon"
+          onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
+        <span class="list-app-name">더치페이</span>
+      </a>
     </div>
-
-    <!-- App Details Display -->
-    <section class="app-detail hidden" id="appDetail">
-      <button class="back-btn" onclick="showList()">← 목록으로 돌아가기</button>
-      <img src="" alt="App Icon" class="app-icon" id="appIcon"
-        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
-      <h2 class="app-name" id="appName">App Name</h2>
-      <p class="app-desc" id="appDesc">App description goes here</p>
-
-      <div class="download-actions" id="downloadActions">
-        <a href="#" id="androidLink" target="_blank" rel="noopener noreferrer">
-          <!-- 다운로드 및 여백 크롭 완료된 구글 스토어 배지 이미지 -->
-          <img class="dl-badge play-store" src="./assets/google-play-badge.png" alt="Google Play 스토어에서 다운로드">
-        </a>
-        <a href="#" id="iosLink" target="_blank" rel="noopener noreferrer">
-          <!-- 공식 다운로드 애플 스토어 배지 SVG -->
-          <img class="dl-badge app-store" src="./assets/app-store-badge.svg" alt="App Store에서 다운로드하기">
-        </a>
-      </div>
-
-      <div class="screenshots-container" id="screenshotsContainer">
-        <!-- Screenshots injected by JS -->
-      </div>
-    </section>
 
     <footer>© 2025 JustKeepGoing · App Downloads</footer>
   </main>
-
-  <script>
-    // App Data Store
-    const appsData = [
-      {
-        id: 'raceballs',
-        name: 'RaceBalls',
-        desc: '레이싱 룰렛 3D - 빠르고 직관적인 물리 엔진 기반 화면 비율 구슬 레이싱 무작위 추첨기',
-        icon: './assets/raceballs/icon.png',
-        screenshots: [
-          './assets/raceballs/1.png',
-          './assets/raceballs/2.png',
-          './assets/raceballs/3.png',
-          './assets/raceballs/4.png'
-        ],
-        androidLink: 'https://play.google.com/store/apps/details?id=com.justkeepgoing.raceballs',
-        iosLink: 'https://apps.apple.com/app/%EB%A0%88%EC%9D%B4%EC%8A%A4%EB%B3%BC-%EB%9E%9C%EB%8D%A4-%EB%BD%91%EA%B8%B0-%ED%95%80%EB%B3%BC-%EA%B5%AC%EC%8A%AC-%EB%A0%88%EC%9D%B4%EC%8B%B1/id6759667515'
-      },
-      {
-        id: 'dutchpay',
-        name: '더치페이',
-        desc: '모임 정산을 가장 쉽고 정확하게 해주는 정산 계산기 앱',
-        icon: './assets/dutchpay/icon.png',
-        screenshots: [
-          './assets/dutchpay/1.png',
-          './assets/dutchpay/2.png',
-          './assets/dutchpay/3.png',
-          './assets/dutchpay/4.png',
-          './assets/dutchpay/5.png'
-        ],
-        androidLink: 'https://play.google.com/store/apps/details?id=com.justkeepgoing.dutchpay',
-        iosLink: 'https://apps.apple.com/app/%EB%8D%94%EC%B9%98%ED%8E%98%EC%9D%B4-%EC%B4%9D%EB%AC%B4-%EC%A0%95%EC%82%B0-%EC%97%94%EB%B9%B5/id6760618588'
-      },
-      // {
-      //   id: 'kidsforest',
-      //   name: '키즈 포레스트',
-      //   desc: '아이들을 위한 숲속 마을 탐험과 재밌는 에듀케이션 게임 모음 (키즈 앱)',
-      //   icon: './assets/kidsforest-icon.png',
-      //   screenshots: [
-      //     './assets/kidsforest-screen1.png',
-      //     './assets/kidsforest-screen2.png',
-      //     './assets/kidsforest-screen3.png'
-      //   ],
-      //   androidLink: '#',
-      //   iosLink: '#'
-      // }
-    ];
-
-    const appList = document.getElementById('appList');
-    const appDetail = document.getElementById('appDetail');
-    const appIcon = document.getElementById('appIcon');
-    const appName = document.getElementById('appName');
-    const appDesc = document.getElementById('appDesc');
-    const screenshotsContainer = document.getElementById('screenshotsContainer');
-    const androidLink = document.getElementById('androidLink');
-    const iosLink = document.getElementById('iosLink');
-
-    function showList() {
-      appList.classList.remove('hidden');
-      appDetail.classList.add('hidden');
-    }
-
-    // Initialize page
-    function init() {
-      // Create App List
-      appsData.forEach((app) => {
-        const item = document.createElement('div');
-        item.className = 'app-list-item';
-        
-        const icon = document.createElement('img');
-        icon.className = 'list-app-icon';
-        icon.src = app.icon;
-        icon.alt = app.name + ' icon';
-        icon.onerror = function () {
-          this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>";
-          this.style.background = '#2a2f4c';
-        };
-
-        const nameSpan = document.createElement('span');
-        nameSpan.className = 'list-app-name';
-        nameSpan.innerText = app.name;
-
-        item.appendChild(icon);
-        item.appendChild(nameSpan);
-
-        item.addEventListener('click', () => selectApp(app.id));
-        appList.appendChild(item);
-      });
-      
-      showList();
-    }
-
-    // Handle App Selection
-    function selectApp(appId) {
-      // Find app data
-      const app = appsData.find(a => a.id === appId);
-      if (!app) return;
-
-      // Populate Data
-      appIcon.src = app.icon;
-      appName.innerText = app.name;
-      appDesc.innerText = app.desc;
-
-      // Setup links
-      if (app.androidLink) {
-        androidLink.href = app.androidLink;
-        androidLink.style.display = 'inline-flex';
-      } else {
-        androidLink.style.display = 'none';
-      }
-
-      if (app.iosLink) {
-        iosLink.href = app.iosLink;
-        iosLink.style.display = 'inline-flex';
-      } else {
-        iosLink.style.display = 'none';
-      }
-
-      // Populate Screenshots
-      screenshotsContainer.innerHTML = ''; // Clear previous
-      app.screenshots.forEach(src => {
-        const img = document.createElement('img');
-        img.className = 'screenshot-item';
-        img.src = src;
-        img.alt = `${app.name} 스크린샷`;
-        // Handle broken images for development gracefully
-        img.onerror = function () {
-          this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'><rect width='200' height='400' fill='%231e2235'/><text x='100' y='200' fill='%23a7b0c3' text-anchor='middle' alignment-baseline='middle' font-family='sans-serif' font-size='14'>Screenshot</text></svg>";
-        };
-        screenshotsContainer.appendChild(img);
-      });
-
-      // Show detail section
-      appList.classList.add('hidden');
-      appDetail.classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Run init
-    document.addEventListener('DOMContentLoaded', init);
-  </script>
 </body>
 
 </html>
