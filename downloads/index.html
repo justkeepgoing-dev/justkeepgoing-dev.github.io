@@ -17,13 +17,14 @@
       <p class="subtitle">JustKeepGoing의 최신 모바일 앱을 다운로드하고 경험해 보세요.</p>
     </section>
 
-    <!-- App Selector -->
-    <nav class="app-selector" id="appSelector">
-      <!-- Buttons injected by JS -->
-    </nav>
+    <!-- App List -->
+    <div class="app-list" id="appList">
+      <!-- List items injected by JS -->
+    </div>
 
     <!-- App Details Display -->
     <section class="app-detail hidden" id="appDetail">
+      <button class="back-btn" onclick="showList()">← 목록으로 돌아가기</button>
       <img src="" alt="App Icon" class="app-icon" id="appIcon"
         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'; this.style.background='#2a2f4c';">
       <h2 class="app-name" id="appName">App Name</h2>
@@ -95,7 +96,7 @@
       // }
     ];
 
-    const appSelector = document.getElementById('appSelector');
+    const appList = document.getElementById('appList');
     const appDetail = document.getElementById('appDetail');
     const appIcon = document.getElementById('appIcon');
     const appName = document.getElementById('appName');
@@ -104,29 +105,43 @@
     const androidLink = document.getElementById('androidLink');
     const iosLink = document.getElementById('iosLink');
 
+    function showList() {
+      appList.classList.remove('hidden');
+      appDetail.classList.add('hidden');
+    }
+
     // Initialize page
     function init() {
-      // Create App Selection Buttons
-      appsData.forEach((app, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'app-btn';
-        btn.innerText = app.name;
-        btn.addEventListener('click', () => selectApp(app.id, btn));
-        appSelector.appendChild(btn);
+      // Create App List
+      appsData.forEach((app) => {
+        const item = document.createElement('div');
+        item.className = 'app-list-item';
+        
+        const icon = document.createElement('img');
+        icon.className = 'list-app-icon';
+        icon.src = app.icon;
+        icon.alt = app.name + ' icon';
+        icon.onerror = function () {
+          this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>";
+          this.style.background = '#2a2f4c';
+        };
 
-        // Select the first app by default
-        if (index === 0) {
-          selectApp(app.id, btn);
-        }
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'list-app-name';
+        nameSpan.innerText = app.name;
+
+        item.appendChild(icon);
+        item.appendChild(nameSpan);
+
+        item.addEventListener('click', () => selectApp(app.id));
+        appList.appendChild(item);
       });
+      
+      showList();
     }
 
     // Handle App Selection
-    function selectApp(appId, btnElement) {
-      // Update active button state
-      document.querySelectorAll('.app-btn').forEach(btn => btn.classList.remove('active'));
-      btnElement.classList.add('active');
-
+    function selectApp(appId) {
       // Find app data
       const app = appsData.find(a => a.id === appId);
       if (!app) return;
@@ -166,7 +181,9 @@
       });
 
       // Show detail section
+      appList.classList.add('hidden');
       appDetail.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Run init
