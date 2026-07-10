@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>오늘 어디갈까? 프로젝트 기획서</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="문서 내비게이션">
+        <a class="brand" href="#overview">오늘 어디갈까?</a>
+        <div class="nav-links">
+          <a href="#mvp">MVP</a>
+          <a href="#screens">화면</a>
+          <a href="#architecture">구조</a>
+          <a href="#roadmap">로드맵</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid" id="overview">
+        <div>
+          <p class="eyebrow">Product Plan · Flutter + FastAPI</p>
+          <h1>30초 안에 오늘 갈 곳을 결정하게 돕는 추천 앱</h1>
+          <p class="lead">
+            목적지를 이미 정한 사용자가 아니라, 지금 어디 갈지 아직 정하지 못한
+            사용자를 위한 의사결정 서비스다. 현재 위치와 오늘의 조건을 바탕으로
+            후보 장소를 줄이고, 왜 추천하는지까지 설명한다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#flow">추천 흐름 보기</a>
+            <a class="button ghost" href="#next-actions">다음 작업 보기</a>
+          </div>
+        </div>
+
+        <aside class="decision-panel" aria-label="핵심 지표">
+          <div class="panel-header">
+            <span>핵심 목표</span>
+            <strong>Decision First</strong>
+          </div>
+          <div class="metric-list">
+            <div>
+              <span>결정 시간</span>
+              <strong>30초</strong>
+            </div>
+            <div>
+              <span>추천 수</span>
+              <strong>5곳</strong>
+            </div>
+            <div>
+              <span>MVP 알고리즘</span>
+              <strong>Rule-based</strong>
+            </div>
+            <div>
+              <span>초기 운영</span>
+              <strong>1인 개발</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Positioning</p>
+          <h2>검색 앱이 아니라 선택을 줄여주는 앱</h2>
+        </div>
+        <div class="comparison">
+          <article>
+            <h3>기존 지도/여행 앱</h3>
+            <p>사용자가 목적지를 이미 알고 있을 때 강하다.</p>
+            <ul>
+              <li>장소명 검색</li>
+              <li>리뷰와 지도 확인</li>
+              <li>길찾기 중심</li>
+            </ul>
+          </article>
+          <article class="highlight">
+            <h3>오늘 어디갈까?</h3>
+            <p>사용자가 아직 선택하지 못했을 때 강해야 한다.</p>
+            <ul>
+              <li>상황 기반 질문</li>
+              <li>추천 점수와 이유</li>
+              <li>오늘의 선택지 압축</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="mvp">
+        <div class="section-heading">
+          <p class="eyebrow">MVP Scope</p>
+          <h2>첫 출시는 추천 5개를 정확히 만드는 데 집중</h2>
+        </div>
+        <div class="scope-grid">
+          <article class="scope-card include">
+            <h3>MVP에 포함</h3>
+            <ul>
+              <li>현재 위치 가져오기</li>
+              <li>동행, 시간, 예산, 실내/실외 조건 선택</li>
+              <li>날씨와 미세먼지 조회</li>
+              <li>관광/장소 후보 수집</li>
+              <li>거리 계산과 점수 계산</li>
+              <li>추천 이유가 포함된 결과 카드</li>
+              <li>외부 지도 앱 연결</li>
+            </ul>
+          </article>
+          <article class="scope-card exclude">
+            <h3>MVP에서 제외</h3>
+            <ul>
+              <li>로그인과 소셜 계정 연동</li>
+              <li>AI 추천과 AI 요약</li>
+              <li>실시간 혼잡도</li>
+              <li>복잡한 코스 자동 생성</li>
+              <li>사용자 리뷰/커뮤니티</li>
+              <li>결제와 광고</li>
+              <li>고도화된 관리자 페이지</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <div class="section-heading">
+          <p class="eyebrow">User Flow</p>
+          <h2>사용자는 검색하지 않고 조건만 고른다</h2>
+        </div>
+        <ol class="flow-list">
+          <li>
+            <strong>위치 확인</strong>
+            <span>현재 위치 사용 권한을 받고 주변 후보를 찾는다.</span>
+          </li>
+          <li>
+            <strong>상황 선택</strong>
+            <span>혼자, 연인, 친구, 아이와, 부모님 중 동행 유형을 고른다.</span>
+          </li>
+          <li>
+            <strong>제약 선택</strong>
+            <span>이동 가능 시간, 예산, 실내/실외, 반려동물, 유모차 조건을 고른다.</span>
+          </li>
+          <li>
+            <strong>추천 계산</strong>
+            <span>거리, 날씨, 미세먼지, 예산, 동행 적합도를 점수화한다.</span>
+          </li>
+          <li>
+            <strong>결과 확인</strong>
+            <span>추천 5개와 이유를 보고 지도 앱으로 이동한다.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="screens">
+        <div class="section-heading">
+          <p class="eyebrow">Flutter UI</p>
+          <h2>현재 프로젝트 UI를 추천 앱 구조로 재해석</h2>
+        </div>
+        <div class="screen-grid">
+          <article class="screen-card">
+            <span class="tab-label">홈</span>
+            <h3>오늘 추천 시작</h3>
+            <p>앱을 열면 바로 조건 선택 카드와 추천 시작 버튼을 보여준다.</p>
+            <ul>
+              <li>현재 위치 상태</li>
+              <li>동행 유형 칩</li>
+              <li>이동 시간 선택</li>
+              <li>예산 선택</li>
+              <li>실내/실외 토글</li>
+            </ul>
+          </article>
+          <article class="screen-card">
+            <span class="tab-label">추천</span>
+            <h3>추천 결과</h3>
+            <p>추천 점수와 이유를 카드 형태로 보여주고 지도 연결을 제공한다.</p>
+            <ul>
+              <li>추천 장소 5개</li>
+              <li>점수와 핵심 이유</li>
+              <li>예상 이동 시간</li>
+              <li>예상 비용</li>
+              <li>지도에서 보기</li>
+            </ul>
+          </article>
+          <article class="screen-card">
+            <span class="tab-label">메뉴</span>
+            <h3>운영 메뉴</h3>
+            <p>현재 샘플의 설정, 공지사항, 고객센터 구조를 계속 활용한다.</p>
+            <ul>
+              <li>테마 설정</li>
+              <li>공지사항</li>
+              <li>1:1 문의</li>
+              <li>최근 추천 기록</li>
+              <li>개인정보 처리방침</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="algorithm">
+        <div class="section-heading">
+          <p class="eyebrow">Recommendation</p>
+          <h2>초기 추천은 설명 가능한 점수제로 시작</h2>
+        </div>
+        <div class="score-layout">
+          <div class="score-bars" aria-label="추천 점수 구성">
+            <div data-score="25"><span>거리/이동시간</span><strong>25</strong></div>
+            <div data-score="20"><span>날씨 적합도</span><strong>20</strong></div>
+            <div data-score="15"><span>미세먼지</span><strong>15</strong></div>
+            <div data-score="15"><span>동행 적합도</span><strong>15</strong></div>
+            <div data-score="10"><span>예산 적합도</span><strong>10</strong></div>
+            <div data-score="10"><span>실내/실외 선호</span><strong>10</strong></div>
+            <div data-score="5"><span>부가 조건</span><strong>5</strong></div>
+          </div>
+          <article class="reason-card">
+            <h3>결과 데이터는 이유를 함께 가진다</h3>
+            <pre><code>{
+  "place": "송도 센트럴파크",
+  "score": 91,
+  "reasons": [
+    "이동시간이 30분 이내입니다.",
+    "오늘은 야외 활동에 적합한 날씨입니다.",
+    "예상 비용이 선택한 예산 안에 들어옵니다."
+  ]
+}</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>혼자 운영 가능한 작은 서버 구조</h2>
+        </div>
+        <div class="architecture-grid">
+          <article>
+            <h3>Flutter</h3>
+            <p>화면, 위치 권한, 조건 입력, 결과 표시, 지도 연결만 담당한다.</p>
+            <code>features/recommendation</code>
+          </article>
+          <article>
+            <h3>FastAPI</h3>
+            <p>외부 API 키 보호, 후보 수집, 점수 계산, 캐시 저장을 담당한다.</p>
+            <code>services/scoring_service.py</code>
+          </article>
+          <article>
+            <h3>PostgreSQL</h3>
+            <p>장소 보정 데이터, 추천 로그, 즐겨찾기, 피드백을 저장한다.</p>
+            <code>places, recommendation_logs</code>
+          </article>
+          <article>
+            <h3>Mini PC + WSL</h3>
+            <p>초기 서버로 사용하되, 외부 공개와 백업 정책은 별도로 관리한다.</p>
+            <code>Docker Compose</code>
+          </article>
+        </div>
+
+        <div class="api-box">
+          <h3>초기 API</h3>
+          <ul>
+            <li><code>POST /recommendations</code> 조건 기반 추천 요청</li>
+            <li><code>GET /places/{place_id}</code> 장소 상세 조회</li>
+            <li><code>POST /favorites</code> 즐겨찾기 저장</li>
+            <li><code>POST /feedback</code> 추천 품질 피드백 저장</li>
+            <li><code>GET /health</code> 서버 상태 확인</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">External APIs</p>
+          <h2>초기에는 API 수를 줄이고 비용을 통제</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>용도</th>
+                <th>1순위</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>장소 후보</td>
+                <td>한국관광공사 TourAPI</td>
+                <td>관광지, 행사, 문화시설 후보 확보</td>
+              </tr>
+              <tr>
+                <td>지도/장소 검색</td>
+                <td>카카오 로컬 API</td>
+                <td>좌표, 키워드, 카테고리 검색에 사용</td>
+              </tr>
+              <tr>
+                <td>날씨</td>
+                <td>OpenWeather 또는 기상청</td>
+                <td>MVP는 구현 속도를 우선하고 이후 교체 가능하게 설계</td>
+              </tr>
+              <tr>
+                <td>미세먼지</td>
+                <td>OpenWeather Air Pollution 또는 공공데이터</td>
+                <td>외출 적합도 점수에 반영</td>
+              </tr>
+              <tr>
+                <td>주차/행사</td>
+                <td>공공데이터포털</td>
+                <td>Beta 이후 지역별 데이터부터 확장</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>MVP → Beta → 정식 출시</h2>
+        </div>
+        <div class="roadmap">
+          <article>
+            <span>Phase 1</span>
+            <h3>MVP</h3>
+            <p>더미 데이터로 화면 흐름을 완성한 뒤 실제 API를 연결한다.</p>
+            <ul>
+              <li>추천 시작 화면</li>
+              <li>추천 결과 카드</li>
+              <li>점수 계산</li>
+              <li>지도 앱 연결</li>
+            </ul>
+          </article>
+          <article>
+            <span>Phase 2</span>
+            <h3>Beta</h3>
+            <p>추천 품질을 검증하고 최소 운영 기능을 붙인다.</p>
+            <ul>
+              <li>즐겨찾기</li>
+              <li>최근 추천 기록</li>
+              <li>피드백 수집</li>
+              <li>API 캐싱</li>
+            </ul>
+          </article>
+          <article>
+            <span>Phase 3</span>
+            <h3>정식 출시</h3>
+            <p>개인화와 코스 추천을 단계적으로 확장한다.</p>
+            <ul>
+              <li>취향 학습</li>
+              <li>AI 요약</li>
+              <li>공유 기능</li>
+              <li>계절별 추천</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="next-actions">
+        <div class="section-heading">
+          <p class="eyebrow">Next Actions</p>
+          <h2>바로 이어서 개발할 작업</h2>
+        </div>
+        <div class="checklist" data-checklist>
+          <label><input type="checkbox" /> <span><code>lib/lib</code> 중첩 구조 정리</span></label>
+          <label><input type="checkbox" /> <span>앱 이름과 패키지명 정리</span></label>
+          <label><input type="checkbox" /> <span>FVM과 Dart SDK 버전 고정</span></label>
+          <label><input type="checkbox" /> <span>홈 화면을 추천 조건 입력 화면으로 변경</span></label>
+          <label><input type="checkbox" /> <span>추천 결과 화면과 더미 데이터 작성</span></label>
+          <label><input type="checkbox" /> <span>FastAPI MVP 엔드포인트 설계</span></label>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>이 문서는 개발 중 계속 갱신하는 기준 문서다.</p>
+      <button type="button" class="button ghost" data-scroll-top>맨 위로</button>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
